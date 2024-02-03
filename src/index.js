@@ -11,7 +11,7 @@ const Db = new Map()
 @route
 class Server {
     static async handler(req, res) {
-        console.log(req.method)
+
         if(req.method === "POST"){
             const data = await once(req,"data")
             const item = JSON.parse(data)
