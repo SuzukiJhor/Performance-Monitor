@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "curl:post": "curl -X POST --data '{\"name\":\"JhordKendy\"}' \"localhost:3000/people\"",
+    "curl:post": "curl -X POST --data \"{\\\"name\\\":\\\"JhordKendy\\\"}\" \"localhost:3000/people\"",
     "curl:get": "curl \"localhost:3000/people\"",
     "start": "npx babel-node src/index.js",
     "start:dev": "npx nodemon --exec npm start",
