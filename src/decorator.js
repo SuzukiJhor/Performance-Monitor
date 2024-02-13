@@ -3,14 +3,24 @@ function route(target, {
     name 
 }) { 
     if (kind != 'method') return target;
+    const reqId = randomUUID();
 
-    return async function (req, res) {
-        const {
-            statusCode,
-            message
-        } = await target.apply(this, [req, res])
-        res.writeHead(statusCode)
-        res.end(JSON.stringify(message))
+    return function (req, res) {
+        const requestStartedAt = performance.now();
+        console.time('benchmark')
+        const afterExecution = target.apply(this, [req, res])
+        const data = {
+            reqIdm,
+            name,
+            method: req.method,
+            url: req.url
+        }
+
+        afterExecution.finally(_=>{
+            console.timeEnd('benchmark')
+        })
+        
+        return afterExecution;
     }
 }
 
