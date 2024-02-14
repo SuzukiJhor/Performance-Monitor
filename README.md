@@ -2,3 +2,5 @@
 
 </br>
  🛠️  Monitor de desempenho usando decoradores JavaScript
+ - About
+Aplicação em Node.js com o objetivo de monitorar a performance usando Decorators do JavaScript.
